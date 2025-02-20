@@ -8,8 +8,10 @@ const findPerson = asyncHandler(async (req,res) => {
         const person = await prisma.applicant.findMany({
             where:{
                 name:{
-                    contains:name
-                }
+                    contains:name,
+                    mode:"insensitive"
+                },
+
             }
         })
         return res.status(200).json(new response(200,"Successfully found person",person));

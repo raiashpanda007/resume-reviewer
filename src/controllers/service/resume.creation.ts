@@ -8,12 +8,7 @@ import e from "express";
 const addResumeSchema = zod.object({
     url: zod.string(),
 })
-interface Education {
-    degree:string
-    branch:string
-    institution:string
-    year:number
-  }
+
 const prisma = new PrismaClient();
 const addResume = asyncHandler(async (req, res) => {
     const body = req.body;
