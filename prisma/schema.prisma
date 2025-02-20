@@ -1,3 +1,6 @@
+generator client {
+  provider = "prisma-client-js"
+}
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
@@ -8,7 +11,7 @@ model Applicant {
   name       String
   email      String        @unique
   education  Education     
-  experience Experience[]  
+  experience Experience[]
   summary    String?
   skills     String[]     
 }
@@ -18,13 +21,13 @@ type Education {
   degree      String
   branch      String
   institution String
-  year        Int
+  year        String
 }
 
 
 type Experience {
   job_title  String
   company    String
-  start_date DateTime
-  end_date   DateTime?
+  start_date String
+  end_date   String
 }

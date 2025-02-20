@@ -1,6 +1,7 @@
 import {asyncHandler} from '../utils/utils';
 import jwt from 'jsonwebtoken';
 const verifyUser = asyncHandler(async (req,res,next) =>{
+    
     if(!req.headers.authorization){
         return res.status(401).json({message:"Unauthorized"});
     }
