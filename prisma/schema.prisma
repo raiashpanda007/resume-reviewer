@@ -1,0 +1,30 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Applicant {
+  id         String        @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  email      String        @unique
+  education  Education     
+  experience Experience[]  
+  summary    String?
+  skills     String[]     
+}
+
+
+type Education {
+  degree      String
+  branch      String
+  institution String
+  year        Int
+}
+
+
+type Experience {
+  job_title  String
+  company    String
+  start_date DateTime
+  end_date   DateTime?
+}
