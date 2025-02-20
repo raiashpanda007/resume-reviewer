@@ -73,7 +73,7 @@ const addResume = asyncHandler(async (req, res) => {
                 "Content-Type": "application/json"
             }
         })
-        console.log(gemini_response.data.candidates[0].content.parts[0].text);
+        
         const convertedApplicant = convertApplicant(gemini_response.data.candidates[0].content.parts[0].text);
         const newApplicant = await prisma.applicant.create({
             data:{
